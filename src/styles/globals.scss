@@ -1,0 +1,81 @@
+@use "./reset";
+@use "./phone-input";
+
+@import url("https://fonts.googleapis.com/css2?family=Forum&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.forum-regular {
+	font-family: "Forum", serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+body {
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Forum, serif;
+	@extend %unscroll;
+}
+
+.container {
+	width: 100%;
+	max-width: 1350px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+html,
+body {
+	scroll-behavior: smooth; /* для обычного скролла */
+}
+
+.slider {
+	touch-action: pan-x; /* если горизонтальный свайп */
+	-webkit-overflow-scrolling: touch; /* iOS */
+}
+
+@keyframes blink-shadow {
+	0%,
+	100% {
+		text-shadow: 0 0 62px rgb(255, 217, 0);
+	}
+	50% {
+		text-shadow: 0 0 10px rgb(255, 230, 0);
+	}
+}
+
+.blinking-text-shadow {
+	animation: blink-shadow 2s ease-in-out infinite;
+	text-shadow: rgb(255, 187, 0);
+}
+
+ 
+
+/* global.scss */
+
+.shine-text {
+  position: relative;
+  color: currentColor; /* цвет текста задаётся через Tailwind */
+  background: linear-gradient(
+    90deg,
+    currentColor 0%,
+    #7777775e 80%,
+    currentColor 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
