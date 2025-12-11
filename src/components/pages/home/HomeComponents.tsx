@@ -4,6 +4,7 @@ import Ready from "./ready/Ready";
 import Works from "./works/Works";
 import Reviews from "./reviews/Reviews";
 import useAos from "@/components/ui/aos/useAos";
+import Cards from "./cards/Cards";
 
 const HomeComponents = () => {
   useAos();
@@ -11,6 +12,7 @@ const HomeComponents = () => {
     <>
       <Hero />
       <Works />
+      <Cards />
       <Reviews />
       <Ready />
     </>
