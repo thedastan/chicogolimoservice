@@ -1,42 +1,26 @@
 import { PAGE } from "@/config/pages/public-page.config";
-import { FACEBOOK_LINK, INSTAGRAM_LINK, TELEGRAM_LINK, TWITTER_LINK, WHATSAPP_LINK } from "@/constants/admin";
+import {
+  FACEBOOK_LINK,
+  INSTAGRAM_LINK,
+  TELEGRAM_LINK,
+  TWITTER_LINK,
+  WHATSAPP_LINK,
+} from "@/constants/admin";
 
 export const navbar = [
-	{
-    title: "Home",
-    link: PAGE.HOME,
-  },
-  {
-    title: "Fleet",
-    link: PAGE.FLEET,
-  },
-  {
-    title: "Services",
-    link: PAGE.SERVICES,
-  },
-  {
-    title: "How it works",
-    link: PAGE.WORKS,
-  },
-  {
-    title: "Advantages",
-    link: PAGE.ADVANTAGES,
-  },
-  {
-    title: "About company",
-    link: PAGE.ABOUT,
-  },
-  {
-    title: "Reviews",
-    link: PAGE.REVIEWS,
-  },
+  { label: "Home", href: PAGE.HOME },
+  { label: "Fleet", href: PAGE.FLEET },
+  { label: "Services", href: PAGE.SERVICES },
+  { label: "How it works", href: PAGE.WORKS },
+  { label: "Advantages", href: PAGE.ADVANTAGES },
+  { label: "About company", href: PAGE.ABOUT },
+  { label: "Reviews", href: PAGE.REVIEWS },
 ];
 
-
 export const social = [
-	{
+  {
     title: "Instagram",
-    link:  INSTAGRAM_LINK,
+    link: INSTAGRAM_LINK,
   },
   {
     title: "WhatsApp",
@@ -53,9 +37,8 @@ export const social = [
   {
     title: "Facebook",
     link: FACEBOOK_LINK,
-  } 
+  },
 ];
-
 
 export const document = [
   {

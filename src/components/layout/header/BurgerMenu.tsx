@@ -2,45 +2,76 @@
 
 import { navbar } from "@/lib/navbar";
 import Link from "next/link";
-
+import logo2 from "@/assets/images/logo.png";
+import Image from "next/image";
 
 const BurgerMenu = ({
-	isOpen,
-	setIsOpen,
+  isOpen,
+  setIsOpen,
 }: {
-	isOpen: boolean;
-	setIsOpen: (isOpen: boolean) => void;
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 }) => {
-	return (
-		<div
-			id="menu-overlay"
-			className={`fixed top-0 left-0 bg-[rgba(0,0,0,0.5)] w-full h-[100vh] z-50 transition-opacity duration-700 ${
-				isOpen
-					? "opacity-100 pointer-events-auto"
-					: "opacity-0 pointer-events-none"
-			}`}>
-			<div
-				className={`fixed top-0 left-0 w-[100%] h-full bg-white  p-4 flex flex-col justify-start gap-4 shadow-lg z-50 transition-transform duration-700 ${
-					isOpen ? "translate-x-0" : "-translate-x-full"
-				}`}>
+  return (
+    <div
+      className={`fixed inset-0 z-50 bg-black/50 transition-opacity duration-500 ${
+        isOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+      }`}
+      onClick={() => setIsOpen(false)}
+    >
+      <div
+        className={`absolute top-0 right-0 h-full w-full max-w-[320px] bg-white pt-3 p-6 shadow-xl transition-transform duration-500 ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex flex-col h-full">
+          {/* Верхний блок: только Logo */}
+          <div className="flex  justify-start items-center">
+            <Image src={logo2} alt="logo2" className="w-[34px]" />
+          </div>
 
-				<div className="w-full flex flex-col justify-between items-start h-[70ch]">
-					<div className="flex flex-col items-start w-[100%] text-start gap-4 mt-16 ">
-						{navbar.map((el, index) => (
-							<Link
-								key={index}
-								href={el.link}
-								className="text-black text-[16px] text-center w-full font-medium"
-								onClick={() => setIsOpen(false)} // Закрывать меню при переходе
-							>
-								{el.title}
-							</Link>
-						))}
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+          {/* Навигация */}
+          <div className="flex flex-col items-center gap-[24px] mt-[20px]">
+            {navbar.map((el, index) => (
+              <Link
+                key={index}
+                href={el.href}
+                style={{
+                  fontFamily: "Inter, sans-serif",
+                  opacity: isOpen ? 1 : 0,
+                  transition: "opacity 0.4s ease",
+                  transitionDelay: isOpen ? `${index * 0.1}s` : "0s",
+                }}
+                className="text-black text-[14px] font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                {el.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Кнопки прижаты вниз */}
+          <div className="mt-auto w-full flex flex-col gap-[8px]">
+            <button
+              style={{ fontFamily: "Inter, sans-serif" }}
+              className="w-full h-[48px] text-[16px] text-white bg-black font-[600]"
+            >
+              Book Now
+            </button>
+            <button
+              style={{ fontFamily: "Inter, sans-serif" }}
+              className="w-full h-[48px] text-[16px] text-black border border-black"
+            >
+              Discover More
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default BurgerMenu;
