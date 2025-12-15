@@ -4,15 +4,19 @@ import { HTMLAttributes, ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface Props extends HTMLAttributes<HTMLHeadingElement> {
-	children: ReactNode;
+  children: ReactNode;
 }
 
 export function Title({ children, className, ...props }: Props) {
-	return (
-		<h1
-			{...props}
-			className={twMerge("md:text-[32px] text-[24px] font-[400] leading-[120%]  ", className)}>
-			{children}
-		</h1>
-	);
+  return (
+    <h1
+      {...props}
+      className={twMerge(
+        "md:text-[32px] text-[24px] font-[400] leading-[120%]  ",
+        className
+      )}
+    >
+      {children}
+    </h1>
+  );
 }

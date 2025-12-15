@@ -14,7 +14,7 @@ const BurgerMenu = ({
 }) => {
   return (
     <div
-      className={`fixed inset-0 z-50 bg-black/50 transition-opacity duration-500 ${
+      className={`fixed inset-0 z-50 bg-black/50 w-full h-[100vh] transition-opacity duration-500 ${
         isOpen
           ? "opacity-100 pointer-events-auto"
           : "opacity-0 pointer-events-none"
@@ -22,12 +22,12 @@ const BurgerMenu = ({
       onClick={() => setIsOpen(false)}
     >
       <div
-        className={`absolute top-0 right-0 h-full w-full max-w-[320px] bg-white pt-3 p-6 shadow-xl transition-transform duration-500 ${
+        className={`absolute top-0 right-0  max-w-[320px] w-full h-[100vh] bg-[#ffffff] pt-3 p-6 shadow-xl transition-transform duration-500 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex flex-col h-full">
+        <div className="flex flex-col h-full ">
           {/* Верхний блок: только Logo */}
           <div className="flex  justify-start items-center">
             <Image src={logo2} alt="logo2" className="w-[34px]" />

@@ -36,10 +36,10 @@ const Header = () => {
   return (
     <header>
       <div
-        className={`fixed top-0 left-0 z-50 w-full   py-2 transition-all duration-500 ${
+        className={`fixed top-0 left-0 z-50 w-full   backdrop-blur-md backdrop-saturate-150  py-2 transition-all duration-500 ${
           scrolled
             ? "bg-white border-b border-gray-200"
-            : "bg-transparent border-b border-[#a8a8a8]/30"
+            : "bg-[#0000005d] border-b border-[#a8a8a8]/30"
         }`}
       >
         <div className="container flex items-center justify-between">

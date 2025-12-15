@@ -29,14 +29,15 @@ const Advantages = () => {
     <section id="advantages" className="bg-[#000000] pt-20">
       <div className="container">
         <div className="flex flex-col md:flex-row gap-6 justify-between items-start">
-          <TitleComponent className="text-[#FFD06B]">Advantages</TitleComponent>
+          <TitleComponent className="text-[#FFD06B] md:w-[500px] w-full">
+            Why Choose Chicago Illinois Limo Service
+          </TitleComponent>
 
           <div className=" grid md:grid-cols-2 grid-cols-1 gap-3 gap-x-10">
             {data.map((el, index) => (
               <div className="flex items-center gap-2">
                 <div className="w-[8px] h-[8px] rounded-full bg-[#FFD06B]" />
                 <Title className="text-white" key={index}>
-                  {" "}
                   {el.desc}
                 </Title>
               </div>
