@@ -28,7 +28,7 @@ const About = () => {
           <Image
             width={180}
             height={180}
-            className="absolute z-10 mt-20"
+            className="absolute z-10 mt-20 w-[130px] md:w-[178px]"
             src={logo}
             alt="logo"
           />

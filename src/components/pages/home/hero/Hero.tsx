@@ -63,7 +63,7 @@ const Hero = () => {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 flex min-h-screen items-center md:mt-[-150px]">
+      <div className="relative z-10 flex min-h-screen items-center md:mt-[-110px]">
         <div className="container">
           <div className="flex flex-col gap-6 text-white md:text-start text-center">
             <TitleComponent>
