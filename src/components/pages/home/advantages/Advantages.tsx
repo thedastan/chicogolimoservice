@@ -28,32 +28,31 @@ const Advantages = () => {
   return (
     <section id="advantages" className="bg-[#000000] pt-20">
       <div className="container">
-        <div className="flex flex-col md:flex-row gap-6 justify-between items-start">
-          <TitleComponent className="text-[#FFD06B] md:w-[500px] w-full">
-            Why Choose Chicago Illinois Limo Service
-          </TitleComponent>
-
-          <div className=" grid md:grid-cols-2 grid-cols-1 gap-3 gap-x-10">
-            {data.map((el, index) => (
-              <div className="flex items-center gap-2">
-                <div className="w-[8px] h-[8px] rounded-full bg-[#FFD06B]" />
-                <Title className="text-white" key={index}>
-                  {el.desc}
-                </Title>
-              </div>
-            ))}
+        <div className="flex flex-col md:flex-row gap-10 items-start">
+          {/* ЛЕВАЯ колонка — STICKY */}
+          <div className="md:sticky top-24 self-start w-full md:w-fit">
+            <TitleComponent className="text-[#FFD06B]">
+              Advantages
+            </TitleComponent>
           </div>
-        </div>
 
-        <div className="w-full flex items-end justify-end md:mt-20 mt-10">
-          <div className=" relative overflow-hidden w-full max-w-[855px] md:h-[570px] h-[300px]">
-            <Image
-              data-aos="fade-up"
-              fill
-              objectFit="cover"
-              src={img}
-              alt="img"
-            />
+          {/* ПРАВАЯ колонка — ВЕСЬ контент */}
+          <div className="w-full flex flex-col md:items-end items-start">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-3 gap-x-10 md:w-fit w-full">
+              {data.map((el, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 md:w-fit w-full"
+                >
+                  <div className="w-[8px] h-[8px] rounded-full bg-[#FFD06B]" />
+                  <Title className="text-white">{el.desc}</Title>
+                </div>
+              ))}
+            </div>
+
+            <div className="relative overflow-hidden w-full max-w-[895px] md:h-[560px] h-[300px] mt-20">
+              <Image fill className="object-cover" src={img} alt="img" />
+            </div>
           </div>
         </div>
       </div>

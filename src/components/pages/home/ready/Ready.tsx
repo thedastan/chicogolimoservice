@@ -5,39 +5,167 @@ import Button from "@/components/ui/button/Button";
 import { Title } from "@/components/ui/text/Title";
 import img from "@/assets/images/ready.png";
 import { useParallax } from "@/hooks/useParallax";
+import { Description } from "@/components/ui/text/Description";
+import { TitleComponent } from "@/components/ui/text/TitleComponent";
+import Link from "next/link";
+import { MdOutlineMailOutline } from "react-icons/md";
+import { SlLocationPin } from "react-icons/sl";
+import { LuPhone } from "react-icons/lu";
 
 const Ready = () => {
-	const imgRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
 
-	useParallax(
-		imgRef,
-		typeof window !== "undefined" && window.innerWidth < 768 ? 0.2 : 0.4,
-		typeof window !== "undefined" && window.innerWidth < 768 ? 300 : 300
-	);
-	return (
-		<section className="relative w-full min-h-screen overflow-hidden  ">
-			{/* Background */}
-			<div
-				ref={imgRef}
-				className="absolute inset-0 will-change-transform"
-				style={{
-					backgroundImage: `url(${img.src})`,
-					backgroundSize: "cover",
-					backgroundPosition: "center",
-					transform: "translate3d(0,0,0)",
-				}}
-			/>
+  useParallax(
+    imgRef,
+    typeof window !== "undefined" && window.innerWidth < 768 ? 0.2 : 0.4,
+    typeof window !== "undefined" && window.innerWidth < 768 ? 300 : 300
+  );
+  return (
+    <section className="relative w-full min-h-screen overflow-hidden  ">
+      {/* Background */}
+      <div
+        ref={imgRef}
+        className="absolute inset-0 will-change-transform"
+        style={{
+          backgroundImage: `url(${img.src})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          transform: "translate3d(0,0,0)",
+        }}
+      />
 
-			<div className="relative z-10 flex min-h-screen  items-center  bg-[#00000081]">
-				<div className="container flex flex-col justify-center items-center gap-10">
-					<Title className="blinking-text-shadow text-white">
-						Ready to Book Your VIP Ride?
-					</Title>
-					<Button className="bg-white text-black">Book Now</Button>
-				</div>
-			</div>
-		</section>
-	);
+      <div className="relative z-10 min-h-screen flex justify-center items-center flex-col md:flex-row gap-[50px]  bg-[#00000081] md:p-[70px] p-[10px] py-[100px]">
+        <div
+          data-aos="fade-up"
+          className="md:min-w-[600px] w-full h-full text-[#ffffff]"
+        >
+          <Title className="text-[#DCB67D] !text-[20px]">GET STARTED</Title>
+          <TitleComponent className="!text-[36px] h-[70px] flex items-center mt-2   md:w-[500px] w-full">
+            Request a Quote
+          </TitleComponent>
+          <Description className="font-sans mt-2 md:w-[500px] w-full">
+            Let us tailor a transportation solution that perfectly meets your
+            corporate needs. Fill out the form and our team will contact you
+            promptly.
+          </Description>
+          <div className="flex flex-col gap-[20px] mt-4 md:ml-6 ml-0">
+            <div className="flex gap-[20px]">
+              <h4 className="text-black w-[50px] h-[50px] bg-[#DCB67D] text-[25px] flex items-center justify-center rounded-[25px]">
+                <MdOutlineMailOutline />
+              </h4>
+              <div className="font-sans flex flex-col justify-between">
+                <Title className="font-[600] !text-[16px]">Email</Title>
+                <Link
+                  className="text-[#DCB67D] border-b-[1px] border-[#DCB67D]"
+                  href="mailto:chicagoillinoislimoservicelimo@gmail.com"
+                >
+                  chicagoillinoislimoservicelimo@gmail.com
+                </Link>
+              </div>
+            </div>
+
+            <div className="flex gap-[20px]">
+              <h4 className="text-black w-[50px] h-[50px] bg-[#DCB67D] text-[25px] flex items-center justify-center rounded-[25px]">
+                <LuPhone />
+              </h4>
+              <div className="font-sans flex flex-col gap-[10px]">
+                <Title className="font-[600] !text-[16px]">Phone</Title>
+                <Description className="text-[#ffffff]">
+                  Mon-Sun 24/7
+                </Description>
+                <Description className="text-[#DCB67D]">
+                  +1 206 341-2631
+                </Description>
+              </div>
+            </div>
+
+            <div className="flex gap-[20px]">
+              <h4 className="text-black w-[50px] h-[50px] bg-[#DCB67D] text-[25px] flex items-center justify-center rounded-[25px]">
+                <SlLocationPin />
+              </h4>
+              <div className="font-sans flex flex-col justify-between">
+                <Title className="font-[600] !text-[16px]">Location</Title>
+                <Description className="text-[#DCB67D]">
+                  500 E Constitution Dr, Palatine, IL 60074
+                </Description>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-aos="fade-up"
+          className="md:min-w-[600px] w-full h-full bg-[#001539] border border-[#DCB67D] rounded-[15px]"
+        >
+          <div
+            className="w-full h-full gap-[25px] flex flex-col justify-between p-[40px] rounded-[15px]"
+            style={{
+              background: `
+      linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.30) 30%,
+        rgba(0, 0, 0, 0.65) 60%,
+        rgba(0, 0, 0, 80) 100%
+      )
+    `,
+            }}
+            aria-hidden="true"
+          >
+            <div className="w-full flex flex-col gap-[15px]">
+              <div className="w-full flex flex-col gap-1">
+                <Description className="text-[#DCB67D] font-sans">
+                  Book Your Luxury Ride Today*
+                </Description>
+                <input
+                  className="border-l-[2px] border-t-[2px] border-b-[2px] border-black w-full h-[40px] p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
+                  type="text"
+                  placeholder="Enter Your Full Name Here"
+                />
+              </div>
+
+              <div className="w-full flex flex-col gap-1">
+                <Description className="text-[#DCB67D] font-sans">
+                  Book Your Luxury Ride Today*
+                </Description>
+                <input
+                  className="border-l-[2px] border-t-[2px] border-b-[2px] border-black w-full h-[40px] p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
+                  type="text"
+                  placeholder="Enter Your Full Name Here"
+                />
+              </div>
+
+              <div className="w-full flex flex-col gap-1">
+                <Description className="text-[#DCB67D] font-sans">
+                  Book Your Luxury Ride Today*
+                </Description>
+                <input
+                  className="border-l-[2px] border-t-[2px] border-b-[2px] border-black w-full h-[40px] p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
+                  type="text"
+                  placeholder="Enter Your Full Name Here"
+                />
+              </div>
+
+              <div className="w-full flex flex-col gap-1">
+                <Description className="text-[#DCB67D] font-sans">
+                  Book Your Luxury Ride Today*
+                </Description>
+                <textarea
+                  className="border-l-[2px] border-t-[2px] border-b-[2px] w-full h-[80px] border-black p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
+                  placeholder="Enter Your Full Name Here"
+                ></textarea>
+              </div>
+            </div>
+
+            <div className="w-full ">
+              <Button className="bg-white rounded-[5px] px-[1px] w-full">
+                Submit Your Request Now
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Ready;

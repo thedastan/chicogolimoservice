@@ -67,8 +67,8 @@ const Cards = () => {
                 data-aos-delay={index * 150}
                 className={`
     p-6 flex flex-col gap-2 border transition-all
-    ${isMobileYellow ? "border-[#FFD06B]" : "border-white"}
-    ${isDesktopYellow ? "md:border-[#FFD06B]" : "md:border-white"}
+    ${isMobileYellow ? "border-[#FFD06B]" : "border-gray-400"}
+    ${isDesktopYellow ? "md:border-[#FFD06B]" : "md:border-gray-400"}
   `}
               >
                 <h2

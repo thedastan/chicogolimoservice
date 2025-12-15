@@ -33,7 +33,7 @@ const Works = () => {
               key={index}
               data-aos="fade-up"
               data-aos-delay={index * 150}
-              className="flex flex-col gap-4"
+              className="flex flex-col  gap-4"
             >
               <Description className="!text-[24px]">
                 {index + 1}. {el.title}
