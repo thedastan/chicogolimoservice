@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-import logo from "@/assets/images/СL.png";
+import logo from "@/assets/images/logo_about.png";
+
 import { PAGE } from "@/config/pages/public-page.config";
 import BurgerMenu from "./BurgerMenu";
 import { navbar } from "@/lib/navbar";

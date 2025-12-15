@@ -40,9 +40,10 @@ const Ready = () => {
           className="md:min-w-[600px] w-full h-full text-[#ffffff]"
         >
           <Title className="text-[#DCB67D] !text-[20px]">GET STARTED</Title>
-          <TitleComponent className="!text-[36px] h-[70px] flex items-center mt-2   md:w-[500px] w-full">
+          <TitleComponent className="!text-[36px] blinking-text-shadow h-[70px] flex items-center mt-2   md:w-[500px] w-full">
             Request a Quote
           </TitleComponent>
+
           <Description className="font-sans mt-2 md:w-[500px] w-full">
             Let us tailor a transportation solution that perfectly meets your
             corporate needs. Fill out the form and our team will contact you
@@ -55,12 +56,14 @@ const Ready = () => {
               </h4>
               <div className="font-sans flex flex-col justify-between">
                 <Title className="font-[600] !text-[16px]">Email</Title>
-                <Link
-                  className="text-[#DCB67D] border-b-[1px] border-[#DCB67D]"
-                  href="mailto:chicagoillinoislimoservicelimo@gmail.com"
-                >
-                  chicagoillinoislimoservicelimo@gmail.com
-                </Link>
+                <div className="md:max-w-none max-w-[250px] overflow-hidden sm:max-w-[180px]">
+                  <Link
+                    className="text-[#DCB67D] border-b border-[#DCB67D] truncate block"
+                    href="mailto:chicagoillinoislimoservicelimo@gmail.com"
+                  >
+                    chicagoillinoislimoservicelimo@gmail.com
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -125,33 +128,33 @@ const Ready = () => {
 
               <div className="w-full flex flex-col gap-1">
                 <Description className="text-[#DCB67D] font-sans">
-                  Book Your Luxury Ride Today*
+                  Get in Touch With Us*
                 </Description>
                 <input
                   className="border-l-[2px] border-t-[2px] border-b-[2px] border-black w-full h-[40px] p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
-                  type="text"
-                  placeholder="Enter Your Full Name Here"
+                  type="email"
+                  placeholder="Enter Your Email Address"
                 />
               </div>
 
               <div className="w-full flex flex-col gap-1">
                 <Description className="text-[#DCB67D] font-sans">
-                  Book Your Luxury Ride Today*
+                  How can we call you
                 </Description>
                 <input
-                  className="border-l-[2px] border-t-[2px] border-b-[2px] border-black w-full h-[40px] p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
-                  type="text"
-                  placeholder="Enter Your Full Name Here"
+                  className="border-[2px] border-black md:w-[160px] w-full h-[40px] p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
+                  type="number"
+                  placeholder="Phone number"
                 />
               </div>
 
               <div className="w-full flex flex-col gap-1">
                 <Description className="text-[#DCB67D] font-sans">
-                  Book Your Luxury Ride Today*
+                  Tell Us About Your Event*
                 </Description>
                 <textarea
                   className="border-l-[2px] border-t-[2px] border-b-[2px] w-full h-[80px] border-black p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
-                  placeholder="Enter Your Full Name Here"
+                  placeholder="Enter Your Message Here"
                 ></textarea>
               </div>
             </div>

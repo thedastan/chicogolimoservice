@@ -2,7 +2,8 @@
 
 import { navbar } from "@/lib/navbar";
 import Link from "next/link";
-import logo2 from "@/assets/images/logo.png";
+import logo2 from "@/assets/images/logo_about.png";
+
 import Image from "next/image";
 
 const BurgerMenu = ({

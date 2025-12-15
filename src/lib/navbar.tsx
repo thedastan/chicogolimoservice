@@ -16,37 +16,3 @@ export const navbar = [
   { label: "About company", href: PAGE.ABOUT },
   { label: "Reviews", href: PAGE.REVIEWS },
 ];
-
-export const social = [
-  {
-    title: "Instagram",
-    link: INSTAGRAM_LINK,
-  },
-  {
-    title: "WhatsApp",
-    link: WHATSAPP_LINK,
-  },
-  {
-    title: "Telegram",
-    link: TELEGRAM_LINK,
-  },
-  {
-    title: "Twitter",
-    link: TWITTER_LINK,
-  },
-  {
-    title: "Facebook",
-    link: FACEBOOK_LINK,
-  },
-];
-
-export const document = [
-  {
-    title: "Privacy Policy",
-    link: "#",
-  },
-  {
-    title: "Public offer",
-    link: "#",
-  },
-];
