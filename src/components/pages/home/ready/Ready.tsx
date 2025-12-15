@@ -106,9 +106,11 @@ const Ready = () => {
       linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0) 0%,
-        rgba(0, 0, 0, 0.30) 30%,
-        rgba(0, 0, 0, 0.65) 60%,
-        rgba(0, 0, 0, 80) 100%
+        rgba(0, 0, 0, 0.30) 20%,
+        rgba(0, 0, 0, 0.55) 40%,
+		 rgba(0, 0, 0, 0.70) 60%,
+        rgba(0, 0, 0, 0.90) 80%,
+        rgba(0, 0, 0, 100) 100%
       )
     `,
             }}
@@ -159,8 +161,8 @@ const Ready = () => {
               </div>
             </div>
 
-            <div className="w-full ">
-              <Button className="bg-white rounded-[5px] px-[1px] w-full">
+            <div className="w-full">
+              <Button className="bg-white rounded-[5px] md:px-[15px] px-[3px] w-full md:w-fit">
                 Submit Your Request Now
               </Button>
             </div>
