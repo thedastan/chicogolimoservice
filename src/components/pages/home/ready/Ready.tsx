@@ -31,8 +31,6 @@ const Ready = () => {
   const { register, handleSubmit, reset } = useForm<IFormTelegram>();
 
   const messageModel = (data: IFormTelegram) => `
-<b>📩 New message</b>
-
 <b>Name:</b> ${data.name}
 <b>Phone:</b> ${data.email}
 <b>Phone:</b> ${data.number}
