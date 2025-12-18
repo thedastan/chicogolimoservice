@@ -41,25 +41,25 @@ const Ready = () => {
   };
 
   const onSubmit: SubmitHandler<IFormTelegram> = async (data) => {
-    // try {
-    await axios.post(
-      `https://api.telegram.org/bot${"7350084863:AAGNHWJpQ7qif2WAAinzTBqVX3nwE-0sgbk"}/sendMessage`,
-      {
-        chat_id: -1002178370559,
-        parse_mode: "html",
-        text: messageModel(data),
-      }
-    );
-    reset();
-    //   toast.success("Message sent successfully", {
-    //     position: "top-center",
-    //   });
-    // } catch (e) {
-    //   console.error(e);
-    //   toast.error("Something went wrong", {
-    //     position: "top-center",
-    //   });
-    // }
+    try {
+      await axios.post(
+        `https://api.telegram.org/bot${"7350084863:AAGNHWJpQ7qif2WAAinzTBqVX3nwE-0sgbk"}/sendMessage`,
+        {
+          chat_id: -1002178370559,
+          parse_mode: "html",
+          text: messageModel(data),
+        }
+      );
+      reset();
+      toast.success("Message sent successfully", {
+        position: "top-center",
+      });
+    } catch (e) {
+      console.error(e);
+      toast.error("Something went wrong", {
+        position: "top-center",
+      });
+    }
   };
 
   useParallax(
