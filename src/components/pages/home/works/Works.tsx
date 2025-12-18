@@ -5,6 +5,7 @@ import img3 from "@/assets/images/work3.png";
 import Image from "next/image";
 import { Description } from "@/components/ui/text/Description";
 import Button from "@/components/ui/button/Button";
+import Link from "next/link";
 
 const Works = () => {
   const data = [
@@ -51,7 +52,12 @@ const Works = () => {
           ))}
         </div>
 
-        <Button className="bg-black text-white">Book Online</Button>
+        <Link
+          target="_blank"
+          href="https://customer.moovs.app/chicago-illinois-limo-service/new/info"
+        >
+          <Button className="bg-black text-white">Book Online</Button>
+        </Link>
       </div>
     </section>
   );

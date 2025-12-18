@@ -11,9 +11,60 @@ import Link from "next/link";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { SlLocationPin } from "react-icons/sl";
 import { LuPhone } from "react-icons/lu";
+import { SubmitHandler, useForm } from "react-hook-form";
+import axios from "axios";
+import { toast } from "alert-go";
+import "alert-go/dist/notifier.css";
+
+interface IFormTelegram {
+  name: string;
+  email: string;
+  number: number;
+  message: string;
+}
 
 const Ready = () => {
   const imgRef = useRef<HTMLDivElement>(null);
+  const { register, handleSubmit, reset } = useForm<IFormTelegram>();
+
+  const TOKEN = process.env.NEXT_PUBLIC_TG_TOKEN;
+  const CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID;
+
+  const messageModel = (data: IFormTelegram) => {
+    let messageTG = `Name: <b>${data.name}</b>\n`;
+    messageTG += `Email Addres:   <b>${data.email}</b>\n`;
+    messageTG += `Number:  <b>${data.number} </b>\n`;
+    messageTG += `Message: <b>${data.message}</b>\n`;
+    return messageTG;
+  };
+
+  const onSubmit: SubmitHandler<IFormTelegram> = async (data) => {
+    try {
+      await axios.post(
+        `https://api.telegram.org/bot${TOKEN}/sendMessage`,
+        {
+          chat_id: CHAT_ID,
+          parse_mode: "html",
+          text: messageModel(data),
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      reset();
+      toast.success("Message sent successfully", {
+        position: "top-center",
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong", {
+        position: "top-center",
+      });
+    }
+  };
 
   useParallax(
     imgRef,
@@ -99,7 +150,8 @@ const Ready = () => {
           data-aos="fade-up"
           className="md:min-w-[600px] w-full h-full bg-[#001539] border border-[#DCB67D] rounded-[15px]"
         >
-          <div
+          <form
+            onSubmit={handleSubmit(onSubmit)}
             className="w-full h-full gap-[25px] flex flex-col justify-between p-[40px] rounded-[15px]"
             style={{
               background: `
@@ -124,6 +176,7 @@ const Ready = () => {
                 <input
                   className="border-l-[2px] border-t-[2px] border-b-[2px] border-black w-full h-[40px] p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
                   type="text"
+                  {...register("name", { required: true })}
                   placeholder="Enter Your Full Name Here"
                 />
               </div>
@@ -135,6 +188,7 @@ const Ready = () => {
                 <input
                   className="border-l-[2px] border-t-[2px] border-b-[2px] border-black w-full h-[40px] p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
                   type="email"
+                  {...register("email", { required: true })}
                   placeholder="Enter Your Email Address"
                 />
               </div>
@@ -146,6 +200,7 @@ const Ready = () => {
                 <input
                   className="border-[2px] border-black md:w-[160px] w-full h-[40px] p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
                   type="number"
+                  {...register("number", { required: true })}
                   placeholder="Phone number"
                 />
               </div>
@@ -156,17 +211,21 @@ const Ready = () => {
                 </Description>
                 <textarea
                   className="border-l-[2px] border-t-[2px] border-b-[2px] w-full h-[80px] border-black p-[10px] bg-[#00153900] font-sans text-white placeholder:text-[#646464] outline-none"
+                  {...register("message", { required: true })}
                   placeholder="Enter Your Message Here"
                 ></textarea>
               </div>
             </div>
 
             <div className="w-full">
-              <Button className="bg-white rounded-[5px] md:px-[15px] px-[3px] w-full md:w-fit">
+              <Button
+                type="submit"
+                className="bg-white rounded-[5px] md:px-[15px] px-[3px] w-full md:w-fit"
+              >
                 Submit Your Request Now
               </Button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </section>

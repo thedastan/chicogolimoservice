@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^6.1.0",
+    "alert-go": "^1.0.12",
     "aos": "^2.3.4",
     "axios": "^1.12.2",
     "next": "16.0.7",
