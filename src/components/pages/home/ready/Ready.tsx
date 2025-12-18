@@ -27,11 +27,6 @@ const Ready = () => {
   const imgRef = useRef<HTMLDivElement>(null);
   const { register, handleSubmit, reset } = useForm<IFormTelegram>();
 
-  // const TOKEN = process.env.NEXT_PUBLIC_TG_TOKEN;
-  // const CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID;
-  // NEXT_PUBLIC_TG_TOKEN="7350084863:AAGNHWJpQ7qif2WAAinzTBqVX3nwE-0sgbk"
-  // NEXT_PUBLIC_TG_CHAT_ID=-1002178370559
-
   const messageModel = (data: IFormTelegram) => {
     let messageTG = `Name: <b>${data.name}</b>\n`;
     messageTG += `Email Addres:   <b>${data.email}</b>\n`;
@@ -43,9 +38,9 @@ const Ready = () => {
   const onSubmit: SubmitHandler<IFormTelegram> = async (data) => {
     try {
       await axios.post(
-        `https://api.telegram.org/bot${"7350084863:AAGNHWJpQ7qif2WAAinzTBqVX3nwE-0sgbk"}/sendMessage`,
+        `https://api.telegram.org/bot${"8118384368:AAEdU0A6Hgq4fwDms8uF4poPn1_CZ_sQkDY"}/sendMessage`,
         {
-          chat_id: -1002178370559,
+          chat_id: -1003553593022,
           parse_mode: "html",
           text: messageModel(data),
         }
