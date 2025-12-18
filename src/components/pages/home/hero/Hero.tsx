@@ -5,6 +5,7 @@ import Button from "@/components/ui/button/Button";
 import { Title } from "@/components/ui/text/Title";
 import { TitleComponent } from "@/components/ui/text/TitleComponent";
 import img from "@/assets/images/hero_fone.png";
+import Link from "next/link";
 
 const Hero = () => {
   const bgRef = useRef<HTMLDivElement>(null);
@@ -73,12 +74,23 @@ const Hero = () => {
               Airport Transfers • Corporate & VIP Transportation • 24/7 Service
             </Title>
             <div className="flex items-center flex-col md:flex-row w-full gap-4 md:justify-start justify-center">
-              <Button className="text-black bg-white w-full md:w-fit">
-                Book Now
-              </Button>
-              <Button className="bg-transparent text-white w-full md:w-fit border border-white px-6">
-                Call Now
-              </Button>
+              <Link
+                className="w-full md:w-fit"
+                target="_blank"
+                href="https://customer.moovs.app/chicago-illinois-limo-service/new/info"
+              >
+                <Button className="text-black bg-white w-full">Book Now</Button>
+              </Link>
+
+              <Link
+                className="w-full md:w-fit"
+                href="tel:+12063412631"
+                aria-label="Call +1 206 341-2631"
+              >
+                <Button className="bg-transparent text-white w-full md:w-fit border border-white px-6">
+                  Call Now
+                </Button>
+              </Link>
             </div>
             <Title className="flex items-center w-full flex-wrap text-[24px] md:text-[32px] text-wrap">
               <span className="text-gray-600 md:text-[42px] text-[32px]">
