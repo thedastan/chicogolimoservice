@@ -1,26 +1,30 @@
 // components/ui/Button.tsx
-import React, { ButtonHTMLAttributes } from "react";
+import React from "react";
 
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
+  children: React.ReactNode;
+  onClick?: () => void;
   variant?: "primary" | "secondary" | "outline";
   size?: "sm" | "md" | "lg";
+  disabled?: boolean;
+  className?: string;
+  type?: "button" | "submit" | "reset";
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
+  onClick,
+
+  disabled = false,
   className = "",
-  disabled,
-  ...props
 }) => {
   const baseClasses =
-    "flex items-center px-10 h-[40px] text-[14px] justify-center font-[600]";
+    "flex items-center  h-[40px] text-[15px] justify-center font-[500] border border-black  px-10 rounded-[50px]   ";
 
   return (
     <button
-      {...props}
+      onClick={onClick}
       disabled={disabled}
-      style={{ fontFamily: "Inter, sans-serif" }}
       className={`${baseClasses} ${className}`}
     >
       {children}
