@@ -23,47 +23,70 @@ interface IFormTelegram {
   message: string;
 }
 
-const TOKEN = process.env.NEXT_PUBLIC_TG_TOKEN!;
-const CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID!;
-
 const Ready = () => {
   const imgRef = useRef<HTMLDivElement>(null);
   const { register, handleSubmit, reset } = useForm<IFormTelegram>();
 
-  const messageModel = (data: IFormTelegram) => `
-<b>Name:</b> ${data.name}
-<b>Phone:</b> ${data.email}
-<b>Phone:</b> ${data.number}
-<b>Message:</b>${data.message}
-`;
+  const TOKEN = process.env.NEXT_PUBLIC_TG_TOKEN;
+  const CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID;
+
+  const messageModel = (data: IFormTelegram) => {
+    let messageTG = `Name: <b>${data.name}</b>\n`;
+    messageTG += `Email Addres:   <b>${data.email}</b>\n`;
+    messageTG += `Number:  <b>${data.number} </b>\n`;
+    messageTG += `Message: <b>${data.message}</b>\n`;
+    return messageTG;
+  };
 
   const onSubmit: SubmitHandler<IFormTelegram> = async (data) => {
     try {
       await axios.post(
-        `https://api.telegram.org/bot${TOKEN}/sendMessage`,
+        `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TG_TOKEN}/sendMessage`,
         {
-          chat_id: CHAT_ID,
+          chat_id: process.env.NEXT_PUBLIC_TG_CHAT_ID,
           parse_mode: "html",
           text: messageModel(data),
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
         }
       );
-
       reset();
       toast.success("Message sent successfully", {
         position: "top-center",
       });
-    } catch (error) {
-      console.error(error);
+    } catch (e) {
+      console.error(e);
       toast.error("Something went wrong", {
         position: "top-center",
       });
     }
   };
+
+  // const onSubmit: SubmitHandler<IFormTelegram> = async (data) => {
+  //   try {
+  //     await axios.post(
+  //       `https://api.telegram.org/bot${TOKEN}/sendMessage`,
+  //       {
+  //         chat_id: CHAT_ID,
+  //         parse_mode: "html",
+  //         text: messageModel(data),
+  //       },
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
+
+  //     reset();
+  //     toast.success("Message sent successfully", {
+  //       position: "top-center",
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //     toast.error("Something went wrong", {
+  //       position: "top-center",
+  //     });
+  //   }
+  // };
 
   useParallax(
     imgRef,
@@ -217,12 +240,18 @@ const Ready = () => {
             </div>
 
             <div className="w-full">
-              <Button
+              {/* <Button
                 type="submit"
                 className="bg-white rounded-[5px] md:px-[15px] px-[3px] w-full md:w-fit"
               >
                 Submit Your Request Now
-              </Button>
+              </Button> */}
+              <button
+                type="submit"
+                className="bg-white rounded-[5px] text-[15px] h-[40px] md:px-[15px] px-[3px] w-full md:w-fit"
+              >
+                Submit Your Request Now
+              </button>
             </div>
           </form>
         </div>
