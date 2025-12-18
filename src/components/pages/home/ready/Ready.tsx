@@ -27,8 +27,10 @@ const Ready = () => {
   const imgRef = useRef<HTMLDivElement>(null);
   const { register, handleSubmit, reset } = useForm<IFormTelegram>();
 
-  const TOKEN = process.env.NEXT_PUBLIC_TG_TOKEN;
-  const CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID;
+  // const TOKEN = process.env.NEXT_PUBLIC_TG_TOKEN;
+  // const CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID;
+  // NEXT_PUBLIC_TG_TOKEN="7350084863:AAGNHWJpQ7qif2WAAinzTBqVX3nwE-0sgbk"
+  // NEXT_PUBLIC_TG_CHAT_ID=-1002178370559
 
   const messageModel = (data: IFormTelegram) => {
     let messageTG = `Name: <b>${data.name}</b>\n`;
@@ -39,54 +41,26 @@ const Ready = () => {
   };
 
   const onSubmit: SubmitHandler<IFormTelegram> = async (data) => {
-    try {
-      await axios.post(
-        `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TG_TOKEN}/sendMessage`,
-        {
-          chat_id: process.env.NEXT_PUBLIC_TG_CHAT_ID,
-          parse_mode: "html",
-          text: messageModel(data),
-        }
-      );
-      reset();
-      toast.success("Message sent successfully", {
-        position: "top-center",
-      });
-    } catch (e) {
-      console.error(e);
-      toast.error("Something went wrong", {
-        position: "top-center",
-      });
-    }
+    // try {
+    await axios.post(
+      `https://api.telegram.org/bot${"7350084863:AAGNHWJpQ7qif2WAAinzTBqVX3nwE-0sgbk"}/sendMessage`,
+      {
+        chat_id: -1002178370559,
+        parse_mode: "html",
+        text: messageModel(data),
+      }
+    );
+    reset();
+    //   toast.success("Message sent successfully", {
+    //     position: "top-center",
+    //   });
+    // } catch (e) {
+    //   console.error(e);
+    //   toast.error("Something went wrong", {
+    //     position: "top-center",
+    //   });
+    // }
   };
-
-  // const onSubmit: SubmitHandler<IFormTelegram> = async (data) => {
-  //   try {
-  //     await axios.post(
-  //       `https://api.telegram.org/bot${TOKEN}/sendMessage`,
-  //       {
-  //         chat_id: CHAT_ID,
-  //         parse_mode: "html",
-  //         text: messageModel(data),
-  //       },
-  //       {
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       }
-  //     );
-
-  //     reset();
-  //     toast.success("Message sent successfully", {
-  //       position: "top-center",
-  //     });
-  //   } catch (error) {
-  //     console.error(error);
-  //     toast.error("Something went wrong", {
-  //       position: "top-center",
-  //     });
-  //   }
-  // };
 
   useParallax(
     imgRef,
@@ -240,18 +214,12 @@ const Ready = () => {
             </div>
 
             <div className="w-full">
-              {/* <Button
+              <Button
                 type="submit"
                 className="bg-white rounded-[5px] md:px-[15px] px-[3px] w-full md:w-fit"
               >
                 Submit Your Request Now
-              </Button> */}
-              <button
-                type="submit"
-                className="bg-white rounded-[5px] text-[15px] h-[40px] md:px-[15px] px-[3px] w-full md:w-fit"
-              >
-                Submit Your Request Now
-              </button>
+              </Button>
             </div>
           </form>
         </div>
