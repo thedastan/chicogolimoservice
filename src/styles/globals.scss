@@ -80,7 +80,7 @@ body {
 
 .notify.success {
   background: #ffd06b !important;
-  color: white !important;
+  color: black !important;
   border: solid 2px #ffffff;
   width: 230px;
   text-align: center;
@@ -88,13 +88,22 @@ body {
 
 .notify.error {
   background: #e74c3c !important;
+  border: solid 2px #ffffff;
+  width: 230px;
+  text-align: center;
 }
 
 .notify.warning {
   background: #f39c12 !important;
   color: black !important;
+  border: solid 2px #ffffff;
+  width: 230px;
+  text-align: center;
 }
 
 .notify.default {
   background: #2c3e50 !important;
+  border: solid 2px #ffffff;
+  width: 230px;
+  text-align: center;
 }

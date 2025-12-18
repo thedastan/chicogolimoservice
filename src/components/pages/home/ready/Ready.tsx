@@ -23,20 +23,21 @@ interface IFormTelegram {
   message: string;
 }
 
+const TOKEN = process.env.NEXT_PUBLIC_TG_TOKEN!;
+const CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID!;
+
 const Ready = () => {
   const imgRef = useRef<HTMLDivElement>(null);
   const { register, handleSubmit, reset } = useForm<IFormTelegram>();
 
-  const TOKEN = process.env.NEXT_PUBLIC_TG_TOKEN;
-  const CHAT_ID = process.env.NEXT_PUBLIC_TG_CHAT_ID;
+  const messageModel = (data: IFormTelegram) => `
+<b>📩 New message</b>
 
-  const messageModel = (data: IFormTelegram) => {
-    let messageTG = `Name: <b>${data.name}</b>\n`;
-    messageTG += `Email Addres:   <b>${data.email}</b>\n`;
-    messageTG += `Number:  <b>${data.number} </b>\n`;
-    messageTG += `Message: <b>${data.message}</b>\n`;
-    return messageTG;
-  };
+<b>Name:</b> ${data.name}
+<b>Phone:</b> ${data.email}
+<b>Phone:</b> ${data.number}
+<b>Message:</b>${data.message}
+`;
 
   const onSubmit: SubmitHandler<IFormTelegram> = async (data) => {
     try {
