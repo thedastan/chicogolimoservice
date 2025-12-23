@@ -67,10 +67,10 @@ const Footer = () => {
           </div>
         </div>
         <Description className="text-[#747474] text-center py-4 border-b">
-          © 2025 CICL, All Rights Reserved
+          © 2025 Chicago Illinois Limo Service, All Rights Reserved
         </Description>
         <Description className="text-[#747474] text-center py-4">
-          Разработал ИП Мукеев Дастан Ракымович
+          Developed by Dastan Mukeev Company
         </Description>
       </div>
     </footer>
