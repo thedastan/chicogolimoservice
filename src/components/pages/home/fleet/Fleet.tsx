@@ -7,7 +7,8 @@ import img1 from "@/assets/images/scroll1.png";
 import img2 from "@/assets/images/scroll2.png";
 import img3 from "@/assets/images/scroll3.png";
 import img4 from "@/assets/images/scroll4.png";
-import img5 from "@/assets/images/scroll5.png";
+import img5 from "@/assets/images/scroll8.png";
+// import img5 from "@/assets/images/scroll5.png";
 import img6 from "@/assets/images/scroll6.png";
 import img7 from "@/assets/images/scroll7.png";
 
