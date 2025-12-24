@@ -70,7 +70,9 @@ const Footer = () => {
           © 2025 Chicago Illinois Limo Service, All Rights Reserved
         </Description>
         <Description className="text-[#747474] text-center py-4">
-          Developed by Dastan Mukeev Company
+          <Link target="_blank" href="https://www.instagram.com/dastan.mukeev/">
+            Website developed by Dastan Mukeev
+          </Link>
         </Description>
       </div>
     </footer>
