@@ -100,10 +100,11 @@ const Ready = () => {
                 <Title className="font-[600] !text-[16px]">Email</Title>
                 <div className="md:max-w-none max-w-[250px] overflow-hidden sm:max-w-[180px]">
                   <Link
+                    target="_blank"
                     className="text-[#DCB67D] border-b border-[#DCB67D] truncate block"
-                    href="mailto:chicagoillinoislimoservicelimo@gmail.com"
+                    href="mailto:info@chicogolimoservice.us"
                   >
-                    chicagoillinoislimoservicelimo@gmail.com
+                    info@chicogolimoservice.us
                   </Link>
                 </div>
               </div>
@@ -119,7 +120,7 @@ const Ready = () => {
                   Mon-Sun 24/7
                 </Description>
                 <Description className="text-[#DCB67D]">
-                  +1 206 341-2631
+                  <Link href="tell:+1 206 341-2631">+1 206 341-2631</Link>
                 </Description>
               </div>
             </div>
@@ -131,7 +132,12 @@ const Ready = () => {
               <div className="font-sans flex flex-col justify-between">
                 <Title className="font-[600] !text-[16px]">Location</Title>
                 <Description className="text-[#DCB67D]">
-                  500 E Constitution Dr, Palatine, IL 60074
+                  <Link
+                    target="_blank"
+                    href="https://www.google.com/maps/place/3910+N+California+Ave,+Chicago,+IL+60618,+%D0%A1%D0%A8%D0%90/@41.9526208,-87.7011106,17z/data=!4m6!3m5!1s0x880fcd8a6b750e39:0x9a91828bb491c38c!8m2!3d41.9526208!4d-87.6985357!16s%2Fg%2F11c13p59n4?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D"
+                  >
+                    3910 N California Ave, Chicago, IL
+                  </Link>
                 </Description>
               </div>
             </div>
